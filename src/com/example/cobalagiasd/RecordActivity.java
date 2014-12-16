@@ -353,18 +353,17 @@ public class RecordActivity extends Activity implements SurfaceHolder.Callback {
 
 			if (!cameraConfigured) {
 				Camera.Parameters parameters = mCamera.getParameters();
-				// Camera.Size size = getBestPreviewSize(width, height,
-				// parameters);
+				Camera.Size size = getBestPreviewSize(width, height, parameters);
 
-				// if (size != null) {
-				// parameters.setPreviewSize(size.width, size.height);
-				parameters.setPreviewSize(profile.videoFrameWidth,
-						profile.videoFrameHeight);
-				parameters.set("orientation", "portrait");
-				parameters.setRotation(90);
-				mCamera.setParameters(parameters);
-				cameraConfigured = true;
-				// }
+				if (size != null) {
+					parameters.setPreviewSize(size.width, size.height);
+//					parameters.setPreviewSize(profile.videoFrameWidth,
+//							profile.videoFrameHeight);
+					parameters.set("orientation", "portrait");
+					parameters.setRotation(90);
+					mCamera.setParameters(parameters);
+					cameraConfigured = true;
+				}
 			}
 		}
 	}
@@ -386,6 +385,28 @@ public class RecordActivity extends Activity implements SurfaceHolder.Callback {
 	public void surfaceDestroyed(SurfaceHolder holder) {
 		// TODO Auto-generated method stub
 		finish();
+	}
+
+	private Camera.Size getBestPreviewSize(int width, int height,
+			Camera.Parameters parameters) {
+		Camera.Size result = null;
+
+		for (Camera.Size size : parameters.getSupportedPreviewSizes()) {
+			if (size.width <= width && size.height <= height) {
+				if (result == null) {
+					result = size;
+				} else {
+					int resultArea = result.width * result.height;
+					int newArea = size.width * size.height;
+
+					if (newArea > resultArea) {
+						result = size;
+					}
+				}
+			}
+		}
+
+		return (result);
 	}
 
 }
