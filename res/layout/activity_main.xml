@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF000000" >
+
+    <LinearLayout
+        android:id="@+id/lay_header"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#3b3444"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/imageButtonBatalkan1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/icon_dismiss_hdpi" />
+
+        <TextView
+            android:id="@+id/textViewBatalkan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="BATALKAN"
+            android:textColor="#fdce31"
+            android:textSize="11dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Chronometer
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:format="%s"
+            android:gravity="right"
+            android:textColor="#FFFFFF" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/record_indicator_hdpi" />
+    </LinearLayout>
+
+    <SurfaceView
+        android:id="@+id/camera_preview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/lay_header" />
+
+    <ImageButton
+        android:id="@+id/buttonRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/fab_record_hdpi" />
+
+    <TextView
+        android:id="@+id/textViewRandomText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="Random Text"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp" />
+
+    <ImageButton
+        android:id="@+id/buttonRandom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/lay_header"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/btn_pertanyaan_random_hdpi" />
+
+    <ImageButton
+        android:id="@+id/buttonCeritaSendiri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/lay_header"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/btn_cerita_sendiri_hdpi" />
+
+</RelativeLayout>
