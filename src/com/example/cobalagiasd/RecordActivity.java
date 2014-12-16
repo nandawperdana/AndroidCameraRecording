@@ -237,8 +237,7 @@ public class RecordActivity extends Activity implements SurfaceHolder.Callback {
 		mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
 
 		// Step 3: Set a CamcorderProfile (requires API Level 8 or higher)
-		mMediaRecorder.setProfile(CamcorderProfile
-				.get(CamcorderProfile.QUALITY_HIGH));
+		mMediaRecorder.setProfile(profile);
 
 		// Step 4: Set output file
 		mMediaRecorder.setOutputFile(getOutputMediaFile(MEDIA_TYPE_VIDEO)
@@ -356,9 +355,9 @@ public class RecordActivity extends Activity implements SurfaceHolder.Callback {
 				Camera.Size size = getBestPreviewSize(width, height, parameters);
 
 				if (size != null) {
-					parameters.setPreviewSize(size.width, size.height);
-//					parameters.setPreviewSize(profile.videoFrameWidth,
-//							profile.videoFrameHeight);
+					// parameters.setPreviewSize(size.width, size.height);
+					parameters.setPreviewSize(profile.videoFrameWidth,
+							profile.videoFrameHeight);
 					parameters.set("orientation", "portrait");
 					parameters.setRotation(90);
 					mCamera.setParameters(parameters);
